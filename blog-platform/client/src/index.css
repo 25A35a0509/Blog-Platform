@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-feature-settings: 'cv11', 'ss01';
+  }
+
+  /* Visible focus rings for keyboard navigation */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible,
+  [contenteditable]:focus-visible {
+    outline: 2px solid theme('colors.primary.500');
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  /* Shared styling for rendered post content (and the editor's editable area) */
+  .prose-post {
+    @apply text-ink-800 dark:text-ink-100 leading-relaxed;
+  }
+  .prose-post h2 {
+    @apply font-display text-2xl font-semibold mt-8 mb-3 text-ink-900 dark:text-ink-50;
+  }
+  .prose-post h3 {
+    @apply font-display text-xl font-semibold mt-6 mb-2 text-ink-900 dark:text-ink-50;
+  }
+  .prose-post p {
+    @apply mb-4;
+  }
+  .prose-post ul,
+  .prose-post ol {
+    @apply mb-4 ml-6 list-disc space-y-1;
+  }
+  .prose-post ol {
+    @apply list-decimal;
+  }
+  .prose-post a {
+    @apply text-primary-600 dark:text-primary-300 underline underline-offset-2 hover:text-primary-700;
+  }
+  .prose-post blockquote {
+    @apply border-l-4 border-accent-400 pl-4 italic text-ink-600 dark:text-ink-300 my-4;
+  }
+  .prose-post code {
+    @apply bg-ink-100 dark:bg-ink-800 text-primary-700 dark:text-primary-300 px-1.5 py-0.5 rounded text-sm font-mono;
+  }
+  .prose-post img {
+    @apply rounded-lg my-4 max-w-full;
+  }
+
+  /* Reusable button styles */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors duration-150 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-primary-600 text-white hover:bg-primary-700 shadow-soft;
+  }
+  .btn-secondary {
+    @apply btn bg-ink-100 text-ink-800 hover:bg-ink-200 dark:bg-ink-700 dark:text-ink-100 dark:hover:bg-ink-600;
+  }
+  .btn-danger {
+    @apply btn bg-rose-600 text-white hover:bg-rose-700;
+  }
+  .btn-ghost {
+    @apply btn bg-transparent text-ink-600 hover:bg-ink-100 dark:text-ink-300 dark:hover:bg-ink-800;
+  }
+
+  /* Form inputs */
+  .input-field {
+    @apply w-full rounded-lg border border-ink-200 dark:border-ink-700 bg-surface-light dark:bg-surface-dark px-3 py-2 text-sm text-ink-900 dark:text-ink-50 placeholder:text-ink-400 focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-colors;
+  }
+
+  .label-text {
+    @apply block text-sm font-medium text-ink-700 dark:text-ink-200 mb-1;
+  }
+
+  .card {
+    @apply bg-surface-light dark:bg-surface-dark rounded-xl border border-ink-100 dark:border-ink-800 shadow-soft;
+  }
+}
